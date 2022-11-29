@@ -1,4 +1,3 @@
-#define SIZE 10
 
 int mat[SIZE][SIZE];
 
