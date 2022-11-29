@@ -5,14 +5,16 @@ FLAGS = -Wall -g
 OBJECCTS_MAIN = main.o 
 OBJECTS_MAT = my_mat.o
 
-all: libmy_mat.so libmy_mat.a progmaind progmains
+all: libmy_mat.so libmy_mat.a connections
+
+connections: $(OBJECCTS_MAIN) libmy_mat.a
+	$(CC) $(FLAGS) -o connections $(OBJECCTS_MAIN) libmy_mat.a
 
 libmy_mat.so: $(OBJECTS_MAT)
-	$(CC) -shared -o libmy_mat.so $(OBJECTS_MAT) ./libmy_mat.so
+	$(CC) -shared -o libmy_mat.so $(OBJECTS_MAT) 
 
 libmy_mat.a: $(OBJECTS_MAT)
 	$(AR) -rsc libmy_mat.a $(OBJECTS_MAT)
-
 
 my_mat.o: my_mat.c my_mat.h
 	$(CC) $(FLAGS) -c my_mat.c
@@ -27,4 +29,4 @@ valgrind:
 .PHONY: clean all
 
 clean:
-	rm -f *.o *.a *.so progmains progmaind
+	rm -f *.o *.a *.so connections

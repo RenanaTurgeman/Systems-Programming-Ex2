@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "my_mat.h"
+#define SIZE 10
 
 int mat[SIZE][SIZE];
 
@@ -27,7 +30,7 @@ void pathExist()
     }
 }
 
-int shortestPath(int mat[][],int i, int j)
+int shortestPath(int mat[][SIZE],int i, int j)
 {
     for (int k = 0; k < SIZE; k++)
     {
