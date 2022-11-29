@@ -1,5 +1,4 @@
 #include <stdio.h>
-#define SIZE 10
 #include "my_mat.h"
 
 int main()
@@ -10,11 +9,11 @@ int main()
     {
         if (c == 'A')
         {
-            //fillMat();
+            fillMat();
         }else if(c =='B'){
-            //pathExist
+            pathExist();
         }else if(c == 'C'){
-            //FloydWarshall
+            FloydWarshall();
         }
         scanf("%c", &c);
     }
