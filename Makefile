@@ -5,13 +5,10 @@ FLAGS = -Wall -g
 OBJECCTS_MAIN = main.o 
 OBJECTS_MAT = my_mat.o
 
-all: libmy_mat.so libmy_mat.a connections
+all: libmy_mat.a connections
 
 connections: $(OBJECCTS_MAIN) libmy_mat.a
-	$(CC) $(FLAGS) -o connections $(OBJECCTS_MAIN) libmy_mat.a
-
-libmy_mat.so: $(OBJECTS_MAT)
-	$(CC) -shared -o libmy_mat.so $(OBJECTS_MAT) 
+	$(CC) $(FLAGS) -o connections $(OBJECCTS_MAIN) libmy_mat.a -lm
 
 libmy_mat.a: $(OBJECTS_MAT)
 	$(AR) -rsc libmy_mat.a $(OBJECTS_MAT)

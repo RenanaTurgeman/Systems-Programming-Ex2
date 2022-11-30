@@ -10,10 +10,14 @@ int main()
         if (c == 'A')
         {
             fillMat();
-        }else if(c =='B'){
-            pathExist();
-        }else if(c == 'C'){
-            shortestPath();
+        }
+        else if (c == 'B')
+        {
+             pathExist();
+        }
+        else if (c == 'C')
+        {
+             shortestPath();
         }
         scanf("%c", &c);
     }

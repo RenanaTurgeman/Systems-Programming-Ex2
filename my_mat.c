@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include "my_mat.h"
+#include <math.h>
 #define SIZE 10
 
 int mat[SIZE][SIZE];
 
-int min(int x, int y){
-    int min = x;
-    if (x > y)
-        min = y;
-    return min;
-}
 
 void FloydWarshall()
 {
@@ -19,9 +14,14 @@ void FloydWarshall()
         {
             for (int j = 0; j < SIZE; j++)
             {
-                mat[i][j] = min(mat[i][j], mat[i][k] + mat[k][j]);
-            }
-        }
+                if(mat[i][j]!=0 && mat[i][k]!=0 && mat[k][j]!=0){
+                    mat[i][j]= fmin(mat[i][j], mat[i][k]+mat[k][j]);
+                }
+                if(i!=j && mat[i][j]==0 && mat[i][k]!=0 && mat[k][j]!=0){
+                    mat[i][j]= mat[i][k]+mat[k][j];
+                }
+             }
+         }
     }
 }
 
@@ -38,11 +38,10 @@ void fillMat()
     FloydWarshall();
 }
 
-void pathExist()
-{
+void pathExist(){
     int i, j;
     scanf("%d%d", &i, &j);
-
+       
     if (mat[i][j] == 0)
     {
         printf("False\n");
@@ -56,11 +55,10 @@ void pathExist()
 void shortestPath(){
     int i, j;
     scanf("%d%d", &i, &j);
-
+    
     if(mat[i][j] == 0){
-        printf("-1");
+        printf("-1\n");
     }else{
-        printf("%d",mat[i][j]);
+        printf("%d\n",mat[i][j]);
     }
-
 }
