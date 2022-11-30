@@ -13,7 +13,7 @@ int main()
         }else if(c =='B'){
             pathExist();
         }else if(c == 'C'){
-            FloydWarshall();
+            shortestPath();
         }
         scanf("%c", &c);
     }

@@ -2,4 +2,4 @@
 
 void fillMat();
 void pathExist();
-void FloydWarshall();
+void shortestPath();
