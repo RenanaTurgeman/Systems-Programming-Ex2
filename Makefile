@@ -5,7 +5,7 @@ FLAGS = -Wall -g
 OBJECCTS_MAIN = main.o 
 OBJECTS_MAT = my_mat.o
 
-all: libmy_mat.a connections
+all: libmy_mat.a connections valgrind
 
 connections: $(OBJECCTS_MAIN) libmy_mat.a
 	$(CC) $(FLAGS) -o connections $(OBJECCTS_MAIN) libmy_mat.a -lm
@@ -18,10 +18,6 @@ my_mat.o: my_mat.c my_mat.h
 
 main.o: main.c my_mat.h
 	$(CC) $(FLAGS) -c main.c 
-
-valgrind:
-	valgrind --leak-check=full ./$(MAIN)
-
 
 .PHONY: clean all
 
